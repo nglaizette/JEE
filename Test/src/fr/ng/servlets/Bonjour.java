@@ -16,6 +16,10 @@ public class Bonjour extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		String name = request.getParameter("nom");
+		request.setAttribute("name", name);
+		// Gerer le cas par défaut?
+		
 		String message = "Au revoir!";
 		request.setAttribute("myvar", message);
 		
