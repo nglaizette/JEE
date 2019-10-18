@@ -7,6 +7,7 @@
 <title>My Test Jsp</title>
 </head>
 <body>
+<%@ include file="menu.jsp" %>
 <p> Bonjour from JSP </p>
 <p>
 	<%
@@ -17,8 +18,7 @@
 			out.println("Bonsoir");
 		}
 	%>
-</p>
-<p>
+</p><p>
 	<%
 		String variable = (String) request.getAttribute("myvar");
 		out.println(variable);
@@ -31,5 +31,6 @@
 		}
 	%>
 </p>
+
 </body>
 </html>
