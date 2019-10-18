@@ -8,9 +8,8 @@
 </head>
 <body>
 <%@ include file="menu.jsp" %>
-<p> Bonjour, <% String name = (String) request.getAttribute("name");
-	out.print(name);
-	%> from JSP </p>
+<p> Bonjour, ${ empty name ? '': name } from JSP </p>
+<p> Bonjour, ${ names[1] } from JSP </p>
 <p>
 	<%
 		String heure = (String) request.getAttribute("heure");
