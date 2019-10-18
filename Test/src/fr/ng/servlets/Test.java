@@ -15,13 +15,7 @@ public class Test extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setContentType("text/html");
-//		response.setCharacterEncoding("UTF-8");
-//		
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-//		
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
 	}
 
