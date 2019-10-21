@@ -9,7 +9,9 @@
 <body>
 <%@ include file="menu.jsp" %>
 <p> Bonjour, ${ empty name ? '': name } from JSP </p>
-<p> Bonjour, ${ names[1] } from JSP </p>
+<p> Bonjour, ${ names[1] } from tableau </p>
+<p> L'auteur du site est  ${ auteur.prenom } ${ auteur.nom } </p>
+<p> ${ auteur.actif ? 'Vous êtes très actif' : 'Vous êtes inactif !' } </p>
 <p>
 	<%
 		String heure = (String) request.getAttribute("heure");

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.ng.beans.Auteur;
+
 @WebServlet("/Test")
 public class Bonjour extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,13 @@ public class Bonjour extends HttpServlet {
 		request.setAttribute("myvar", message);
 		
 		request.setAttribute("heure", "jour");
+		
+		Auteur auteur = new Auteur();
+		auteur.setNom("Toto");
+		auteur.setPrenom("Côme");
+		auteur.setActif(true);
+		
+		request.setAttribute("auteur", auteur);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
 	}
 
