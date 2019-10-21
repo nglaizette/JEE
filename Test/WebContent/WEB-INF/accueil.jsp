@@ -23,5 +23,21 @@
 <c:set target="${ auteur }" property="prenom" value="Mathieu" />
 <p><c:out value="${ auteur.prenom }" /></p>
 
+<h1> JSTL et conditions</h1>
+<c:if test="${ 50 > 10 }">
+	C'est vrai !
+</c:if>
+
+<c:if test="${ 50 > 10 }" var="test1" scope="page">
+	C'est vrai !
+</c:if>
+<p><c:out value="${ test1 }" /></p>
+<h2>Tests multiples</h2>
+<c:choose>
+    <c:when test="${ test1 }">Du texte (test1)</c:when>
+    <c:when test="${ autreVariable }">Du texte</c:when>
+    <c:when test="${ encoreUneAutreVariable }">Du texte</c:when>
+    <c:otherwise>"text sinon"</c:otherwise>
+</c:choose>
 </body>
 </html>
