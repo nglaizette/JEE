@@ -27,6 +27,9 @@ public class Accueil extends HttpServlet {
 		auteur.setActif(true);
 		
 		request.setAttribute("auteur", auteur);
+		
+		String[] titres = {"Nouvel incendie", "Une île a été découverte", "Chute du dollar"};
+		request.setAttribute("titres", titres);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 	}
 	
