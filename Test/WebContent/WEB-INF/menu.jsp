@@ -3,5 +3,6 @@
 <ul>
 	<li> <a href="/Test/accueil"> Accueil </a></li>
 	<li> <a href="/Test/bonjour"> Bonjour </a></li>
-	<li> Page 3 </li>
+	<li> <a href="/Test/formulaire"> Formulaire </a></li>
+	<li> Page 4 </li>
 </ul>

@@ -18,6 +18,16 @@
     <url-pattern>/accueil</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Formulaire</servlet-name>
+    <servlet-class>fr.ng.servlets.Formulaire</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Formulaire</servlet-name>
+    <url-pattern>/formulaire</url-pattern>
+  </servlet-mapping>
+  
+  
   <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
