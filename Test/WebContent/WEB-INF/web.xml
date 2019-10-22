@@ -36,6 +36,15 @@
     <url-pattern>/session</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Cookie</servlet-name>
+    <servlet-class>fr.ng.servlets.MyCookie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cookie</servlet-name>
+    <url-pattern>/cookie</url-pattern>
+  </servlet-mapping>
+  
     <servlet>
     <servlet-name>Envoi</servlet-name>
     <servlet-class>fr.ng.servlets.Envoi</servlet-class>
