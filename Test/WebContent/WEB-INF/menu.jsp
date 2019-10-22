@@ -4,5 +4,6 @@
 	<li> <a href="/Test/accueil"> Accueil </a></li>
 	<li> <a href="/Test/bonjour"> Bonjour </a></li>
 	<li> <a href="/Test/formulaire"> Formulaire </a></li>
-	<li> Page 4 </li>
+	<li> <a href="/Test/envoi"> Envoi Fichier </a></li>
+	<li> Page 5 </li>
 </ul>

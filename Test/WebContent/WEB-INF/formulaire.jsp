@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Formulaire</title>
 </head>
 <body>
 <%@ include file="menu.jsp" %>
