@@ -27,6 +27,15 @@
     <url-pattern>/formulaire</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Session</servlet-name>
+    <servlet-class>fr.ng.servlets.Session</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Session</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  
     <servlet>
     <servlet-name>Envoi</servlet-name>
     <servlet-class>fr.ng.servlets.Envoi</servlet-class>

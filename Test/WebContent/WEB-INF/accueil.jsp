@@ -53,5 +53,9 @@
 <c:forTokens var="morceau" items="Un élément/Encore un autre élément/Un dernier pour la route" delims="/ ">
     <p>${ morceau }</p>
 </c:forTokens>
+
+<c:if test="${ !empty sessionScope.prenom && !empty sessionScope.nom }">
+        <p>Vous êtes ${ sessionScope.prenom } ${ sessionScope.nom } !</p>
+    </c:if>
 </body>
 </html>
