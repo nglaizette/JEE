@@ -7,5 +7,6 @@
 	<li> <a href="/Test/envoi"> Envoi Fichier </a></li>
 	<li> <a href="/Test/session"> Session </a></li>
 	<li> <a href="/Test/cookie"> Cookie </a></li>
-	<li> Page 6 </li>
+	<li> <a href="/Test/lectureEcritureBdd"> Lecture Ecriture Bdd </a></li>
+	<li> Page 7 </li>
 </ul>
