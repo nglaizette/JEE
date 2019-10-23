@@ -55,6 +55,15 @@
     <url-pattern>/lectureEcritureBdd</url-pattern>
   </servlet-mapping>
   
+      <servlet>
+    <servlet-name>withDaoModel</servlet-name>
+    <servlet-class>fr.ng.servlets.WithDAOModel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>withDaoModel</servlet-name>
+    <url-pattern>/withDaoModel</url-pattern>
+  </servlet-mapping>
+  
     <servlet>
     <servlet-name>Envoi</servlet-name>
     <servlet-class>fr.ng.servlets.Envoi</servlet-class>

@@ -8,5 +8,6 @@
 	<li> <a href="/Test/session"> Session </a></li>
 	<li> <a href="/Test/cookie"> Cookie </a></li>
 	<li> <a href="/Test/lectureEcritureBdd"> Lecture Ecriture Bdd </a></li>
-	<li> Page 7 </li>
+	<li> <a href="/Test/withDaoModel"> WithDAOModel </a></li>
+	<li> Page 9 </li>
 </ul>
