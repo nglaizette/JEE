@@ -5,7 +5,7 @@ import java.util.List;
 import fr.ng.beans.Utilisateur;
 
 public interface UtilisateurDAO {
-	void ajouter(Utilisateur utilisateur);
+	void ajouter(Utilisateur utilisateur) throws DaoException;
 
-	List<Utilisateur> lister();
+	List<Utilisateur> lister() throws DaoException;
 }

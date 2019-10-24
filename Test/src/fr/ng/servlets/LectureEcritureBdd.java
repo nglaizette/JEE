@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.ng.bdd.MyNoms;
+import fr.ng.beans.BeanException;
 import fr.ng.beans.Utilisateur;
 
 /**
@@ -34,12 +35,17 @@ public class LectureEcritureBdd extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Utilisateur utilisateur = new Utilisateur();
-		utilisateur.setNom(request.getParameter("nom"));
-		utilisateur.setPrenom(request.getParameter("prenom"));
 
-		MyNoms tableNoms = new MyNoms();
-		tableNoms.ajouterUtilisateur(utilisateur);
+		try {
+			Utilisateur utilisateur = new Utilisateur();
+			utilisateur.setNom(request.getParameter("nom"));
+			utilisateur.setPrenom(request.getParameter("prenom"));
+
+			MyNoms tableNoms = new MyNoms();
+			tableNoms.ajouterUtilisateur(utilisateur);
+		} catch (BeanException e) {
+			e.getStackTrace();
+		}
 
 		doGet(request, response);
 	}

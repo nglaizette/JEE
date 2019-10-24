@@ -2,7 +2,7 @@ package fr.ng.beans;
 
 /**
  * Classe qui stocke le nom et prénom de l'utilisateur.
- * 
+ *
  * @author NG
  *
  */
@@ -24,7 +24,16 @@ public class Utilisateur {
 		return nom;
 	}
 
-	public void setNom(String nom) {
+	/**
+	 * On limite arbitrairement le nom à 10 caractères
+	 *
+	 * @param nom
+	 */
+	public void setNom(String nom) throws BeanException {
+		if (nom.length() > 10) {
+			throw new BeanException("Le nom est trop grand! (10 caractères maximum)");
+		}
+
 		this.nom = nom;
 	}
 

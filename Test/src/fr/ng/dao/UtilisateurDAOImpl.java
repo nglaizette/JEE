@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.ng.beans.BeanException;
 import fr.ng.beans.Utilisateur;
 
 public class UtilisateurDAOImpl implements UtilisateurDAO {
@@ -19,8 +20,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public void ajouter(Utilisateur utilisateur) {
-		Connection connection;
+	public void ajouter(Utilisateur utilisateur) throws DaoException {
+		Connection connection = null;
 
 		try {
 			connection = daoFactory.getConnection();
@@ -29,14 +30,31 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			ps.setString(2, utilisateur.getPrenom());
 
 			ps.executeUpdate();
+			connection.commit();
+
 		} catch (SQLException e) {
-			e.printStackTrace();
+			try {
+				if (connection != null) {
+					connection.rollback();
+				}
+			} catch (SQLException e2) {
+				throw new DaoException("Impossible de communiquer avec la base de données");
+			}
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				throw new DaoException("Impossible de communiquer avec la base de données");
+			}
+
 		}
 
 	}
 
 	@Override
-	public List<Utilisateur> lister() {
+	public List<Utilisateur> lister() throws DaoException {
 		List<Utilisateur> utilisateurs = new ArrayList<>();
 		Connection connexion = null;
 		Statement statement = null;
@@ -58,7 +76,17 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateurs.add(utilisateur);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DaoException("Impossible de communiquer avec la base de données");
+		} catch (BeanException e) {
+			throw new DaoException("Les données de la base sont invalides");
+		} finally {
+			try {
+				if (connexion != null) {
+					connexion.close();
+				}
+			} catch (SQLException e) {
+				throw new DaoException("Impossible de communiquer avec la base de donnée");
+			}
 		}
 		return utilisateurs;
 	}

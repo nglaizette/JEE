@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.ng.beans.BeanException;
 import fr.ng.beans.Utilisateur;
+import fr.ng.dao.DaoException;
 import fr.ng.dao.DaoFactory;
 import fr.ng.dao.UtilisateurDAO;
 
@@ -36,7 +38,11 @@ public class WithDAOModel extends HttpServlet {
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		request.setAttribute("utilisateurs", utilisateurDao.lister());
+		try {
+			request.setAttribute("utilisateurs", utilisateurDao.lister());
+		} catch (DaoException e) {
+			request.setAttribute("erreur", e.getMessage());
+		}
 		this.getServletContext().getRequestDispatcher("/WEB-INF/withdaomodel.jsp").forward(request, response);
 	}
 
@@ -47,13 +53,18 @@ public class WithDAOModel extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Utilisateur utilisateur = new Utilisateur();
-		utilisateur.setNom(request.getParameter("nom"));
-		utilisateur.setPrenom(request.getParameter("prenom"));
 
-		utilisateurDao.ajouter(utilisateur);
+		try {
+			Utilisateur utilisateur = new Utilisateur();
+			utilisateur.setNom(request.getParameter("nom"));
+			utilisateur.setPrenom(request.getParameter("prenom"));
 
-		request.setAttribute("utilisateurs", utilisateurDao.lister());
+			utilisateurDao.ajouter(utilisateur);
+
+			request.setAttribute("utilisateurs", utilisateurDao.lister());
+		} catch (DaoException | BeanException e) {
+			request.setAttribute("erreur", e.getMessage());
+		}
 		doGet(request, response);
 	}
 
